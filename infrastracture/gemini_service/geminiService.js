@@ -4,7 +4,7 @@ const QuotesRepository = require("../../application/interfaces/QuotesRepositoryI
 const geminiAi = new GoogleGenerativeAI("API_KEY");
 const model = geminiAi.getGenerativeModel({model: "gemini-1.5-pro"});
 
-class GeminiApi extends QuotesRepository{
+class GeminiService extends QuotesRepository{
     async getAdviceByMood(mood){
         const prompt = `${mood}`;
 
@@ -27,3 +27,5 @@ class GeminiApi extends QuotesRepository{
         return text;
     }
 }
+
+module.exports = GeminiService;
